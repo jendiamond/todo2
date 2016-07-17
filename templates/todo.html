@@ -6,6 +6,6 @@
   <div>
     <input type="checkbox" [(ngModel)]="todo.done">
     {{todo.task}}
-    <button type="button">Delete</button>
+    <button type="button" [(ngClick)]="remove.task">Delete</button>
   </div>
 </div>

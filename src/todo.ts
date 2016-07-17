@@ -21,7 +21,7 @@ export class TodoComponent{
     {done:true, task:'do the laundry'},
     {done:false, task:'test my code'}
   ];
-  // public tasks:string[];
+  // public tasks:Array<string> same as public tasks:string[];
 
   constructor(){
   }
@@ -30,6 +30,11 @@ export class TodoComponent{
     console.log(JSON.stringify(this));
     this.tasks.push(new Todo(this.task));
     this.task = "";
+  }
 
+  onDelete() {
+    console.log(JSON.stringify(this));
+    this.tasks.push(new Todo(this.task));
+    this.task = "";
   }
 }
