@@ -16,25 +16,28 @@ class Todo {
 
 export class TodoComponent{
   public task:string;
-  public tasks:Array<Todo> = [
-    {done:false, task:'walk the cat'},
-    {done:true, task:'do the laundry'},
-    {done:false, task:'test my code'}
-  ];
-  // public tasks:Array<string> same as public tasks:string[];
+  public tasks:Array<Todo> = [];
 
   constructor(){
+    let storage = window.localStorage['codeDistrict'];
+    if(storage){
+      this.tasks = JSON.parse(storage);
+    }
   }
 
   onSubmit() {
     console.log(JSON.stringify(this));
     this.tasks.push(new Todo(this.task));
     this.task = "";
+    this.persistChange();
   }
 
-  onDelete() {
-    console.log(JSON.stringify(this));
-    this.tasks.push(new Todo(this.task));
-    this.task = "";
+  deleteIt(index){
+    this.tasks = this.tasks.filter((elem, ndx) => ndx !== index);
+    this.persistChange();
+  }
+
+  persistChange(){
+    window.localStorage['codeDistrict'] = JSON.stringify(this.tasks);
   }
 }
