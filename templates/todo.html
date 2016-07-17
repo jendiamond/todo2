@@ -1,1 +1,5 @@
-<h1>ToDo!</h1>
+<h1>To Do!</h1>
+<form (ngSubmit)="onSubmit()" #doitForm="ngForm">
+  <input type="text" [(ngModel)]="task">
+  <button type="submit">Add it</button>
+</form>
