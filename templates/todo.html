@@ -2,10 +2,10 @@
   <input type="text" [(ngModel)]="task">
   <button type="submit">Add it</button>
 </form>
-<div *ngFor="#todo of tasks">
+<div *ngFor="#todo of tasks; #ndx=index">
   <div>
     <input type="checkbox" [(ngModel)]="todo.done">
     {{todo.task}}
-    <button type="button">Delete</button>
+    <button type="button" (click)="deleteIt(ndx)">Delete</button>
   </div>
 </div>
