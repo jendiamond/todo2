@@ -4,8 +4,8 @@ class Todo {
   task:string;
   done:boolean;
   constructor(_task:string){
-    this.task = task;
-    this.task = false;
+    this.task = _task;
+    this.done = false;
   }
 }
 
@@ -17,13 +17,14 @@ class Todo {
 export class TodoComponent{
   public task:string;
   public tasks:Array<Todo> = [];
-  // or public tasks:string[];
+  // public tasks:string[];
 
   constructor(){
   }
 
   onSubmit() {
     console.log(JSON.stringify(this));
-    this.tasks.push(new Todo(this.task))
+    this.tasks.push(new Todo(this.task));
+
   }
 }
