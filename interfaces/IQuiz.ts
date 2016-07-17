@@ -1,5 +1,0 @@
-
-
-interface IQuiz {
-  questions: IQuestion[];
-}
