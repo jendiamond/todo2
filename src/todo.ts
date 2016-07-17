@@ -16,7 +16,9 @@ class Todo {
 
 export class TodoComponent{
   public task:string;
-  public tasks:Array<Todo> = [];
+  public tasks:Array<Todo> = [
+    {done:false, task: "walk the cat"}
+  ];
   // public tasks:string[];
 
   constructor(){
@@ -25,6 +27,6 @@ export class TodoComponent{
   onSubmit() {
     console.log(JSON.stringify(this));
     this.tasks.push(new Todo(this.task));
-
+    this.task="";
   }
 }
